@@ -1,5 +1,11 @@
-import { Hexagon, X, User } from 'lucide-react';
+import { Hexagon, X, User, Menu } from 'lucide-react';
 import * as Dialog from '@radix-ui/react-dialog';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
 
 export function Header() {
   return (
@@ -17,11 +23,31 @@ export function Header() {
         </a>
 
         <Dialog.Root>
-          <Dialog.Trigger asChild>
-            <button className="text-sm font-sans tracking-widest uppercase text-[#f5f5f0]/80 hover:text-[#D4AF37] transition-colors cursor-pointer outline-none">
-              Acerca de
-            </button>
-          </Dialog.Trigger>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button className="text-[#f5f5f0]/80 hover:text-[#D4AF37] transition-colors outline-none cursor-pointer flex items-center ml-2">
+                <Menu className="w-6 h-6" />
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="bg-[#121212] border border-[#D4AF37]/20 p-2 min-w-[150px] shadow-[0_0_20px_rgba(212,175,55,0.05)] rounded-xl mt-4 z-[100]" align="end">
+              <Dialog.Trigger asChild>
+                <DropdownMenuItem className="text-sm font-sans tracking-widest uppercase text-[#f5f5f0]/80 focus:bg-[#1a1a1a] focus:text-[#D4AF37] cursor-pointer rounded-lg py-3 px-4 outline-none">
+                  Acerca de
+                </DropdownMenuItem>
+              </Dialog.Trigger>
+              <DropdownMenuItem asChild className="text-sm font-sans tracking-widest uppercase text-[#f5f5f0]/80 focus:bg-[#1a1a1a] focus:text-[#D4AF37] cursor-pointer rounded-lg py-3 px-4 outline-none">
+                <a 
+                  href="http://localhost:3000" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex"
+                >
+                  Admin
+                </a>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
           <Dialog.Portal>
             <Dialog.Overlay className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100]" />
             <Dialog.Content className="fixed left-[50%] top-[50%] z-[101] w-[90vw] max-w-2xl translate-x-[-50%] translate-y-[-50%] rounded-2xl bg-[#121212] border border-[#D4AF37]/20 p-6 md:p-10 shadow-[0_0_40px_rgba(212,175,55,0.05)] max-h-[85vh] overflow-y-auto focus:outline-none">
@@ -70,15 +96,6 @@ export function Header() {
             </Dialog.Content>
           </Dialog.Portal>
         </Dialog.Root>
-
-        <a 
-          href="http://localhost:3000" 
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-sm font-sans tracking-widest uppercase text-[#f5f5f0]/80 hover:text-[#D4AF37] transition-colors"
-        >
-          Admin
-        </a>
       </nav>
     </header>
   );
