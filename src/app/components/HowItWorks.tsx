@@ -24,7 +24,7 @@ export function HowItWorks() {
     <section id="how-it-works" className="py-24 px-6 md:px-12 bg-[#121212] border-t border-b border-[#D4AF37]/10">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-5xl font-serif text-[#f5f5f0] mb-16 text-center">
-          La Experiencia <span className="text-[#D4AF37] italic">[Por definir]</span>
+          La Experiencia <span className="text-[#D4AF37] italic">Memory Key</span>
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center relative z-10">

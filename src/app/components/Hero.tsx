@@ -31,7 +31,7 @@ export function Hero() {
             La Nueva Era del Recuerdo
           </span>
           <h1 className="text-5xl md:text-7xl font-serif text-[#f5f5f0] leading-tight font-medium mb-6">
-            Lleva la <span className="italic text-[#D4AF37]">Magia</span><br /> en tu Bolsillo
+            Preservando momentos<br /> <span className="italic text-[#D4AF37]">eternos</span>
           </h1>
           <p className="text-[#f5f5f0]/70 font-sans text-lg md:text-xl font-light max-w-xl mx-auto leading-relaxed">
             Tu llavero es más que un objeto. Es una puerta hacia tus memorias más preciadas a través de la realidad aumentada.
