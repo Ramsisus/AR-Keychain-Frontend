@@ -1,3 +1,4 @@
+import React from 'react';
 import { X, User, Menu } from 'lucide-react';
 import * as Dialog from '@radix-ui/react-dialog';
 import {
@@ -8,6 +9,16 @@ import {
 } from "./ui/dropdown-menu";
 
 export function Header() {
+  const handleAdminClick = async (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    try {
+      await fetch('http://localhost:3000', { mode: 'no-cors' });
+      window.open('http://localhost:3000', '_blank');
+    } catch (error) {
+      alert('Acceso Denegado: El panel de administración no se encuentra disponible o no tienes los permisos necesarios.');
+    }
+  };
+
   return (
     <header className="w-full flex justify-between items-center py-6 px-6 md:px-12 bg-transparent absolute top-0 z-50">
       <div className="flex items-center gap-2">
@@ -38,8 +49,7 @@ export function Header() {
               <DropdownMenuItem asChild className="text-sm font-sans tracking-widest uppercase text-[#f5f5f0]/80 focus:bg-[#1a1a1a] focus:text-[#D4AF37] cursor-pointer rounded-lg py-3 px-4 outline-none">
                 <a 
                   href="http://localhost:3000" 
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  onClick={handleAdminClick}
                   className="w-full flex"
                 >
                   Admin
@@ -81,13 +91,21 @@ export function Header() {
                 <div className="pt-4 border-t border-[#D4AF37]/10">
                   <h3 className="font-serif text-2xl text-[#f5f5f0] mb-8">Socios</h3>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
-                    {[1, 2, 3].map((item) => (
-                      <div key={item} className="flex flex-col items-center text-center group">
+                    {[
+                      { id: 1, name: 'Joseph Gil', role: 'Socio', image: '/joseph_gil.jpeg' },
+                      { id: 2, name: 'Alejandra Olmos', role: 'Socio', image: '/alejandra_olmos.jpeg' },
+                      { id: 3, name: 'Dalton Gutiérrez', role: 'Socio', image: '/dalton_gutierrez.jpeg' }
+                    ].map((socio) => (
+                      <div key={socio.id} className="flex flex-col items-center text-center group">
                         <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-[#1a1a1a] border border-[#D4AF37]/20 mb-4 flex items-center justify-center overflow-hidden group-hover:border-[#D4AF37]/60 transition-colors shadow-lg">
-                          <User className="w-8 h-8 text-[#f5f5f0]/20 group-hover:text-[#D4AF37]/50 transition-colors" />
+                          {socio.image ? (
+                            <img src={socio.image} alt={socio.name} className="w-full h-full object-cover" />
+                          ) : (
+                            <User className="w-8 h-8 text-[#f5f5f0]/20 group-hover:text-[#D4AF37]/50 transition-colors" />
+                          )}
                         </div>
-                        <h4 className="font-sans font-medium text-[#f5f5f0] text-sm md:text-base tracking-wide">Por definir</h4>
-                        <span className="font-sans text-xs md:text-sm text-[#D4AF37]/70 mt-1">Rol por definir</span>
+                        <h4 className="font-sans font-medium text-[#f5f5f0] text-sm md:text-base tracking-wide">{socio.name}</h4>
+                        <span className="font-sans text-xs md:text-sm text-[#D4AF37]/70 mt-1">{socio.role}</span>
                       </div>
                     ))}
                   </div>

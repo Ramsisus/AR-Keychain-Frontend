@@ -23,7 +23,7 @@ export function About() {
           <div className="w-16 h-px bg-[#D4AF37]/50 mx-auto mb-10" />
           <p className="text-[#f5f5f0]/70 font-sans text-lg md:text-2xl font-light leading-relaxed max-w-2xl mx-auto">
             Creemos que los objetos cotidianos pueden albergar memorias extraordinarias. 
-            Nuestra visión es unir la elegancia minimalista de un accesorio atemporal 
+            Nuestro objetivo es unir la elegancia minimalista de un accesorio atemporal 
             con la tecnología inmersiva de la realidad aumentada.
           </p>
         </motion.div>

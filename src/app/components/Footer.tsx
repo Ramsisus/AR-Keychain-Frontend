@@ -12,8 +12,8 @@ export function Footer() {
         <a href="https://www.instagram.com/memo.rykey1/" target="_blank" rel="noopener noreferrer" className="text-[#f5f5f0]/50 hover:text-[#D4AF37] transition-colors font-sans text-sm uppercase tracking-widest">
           Instagram
         </a>
-        <a href="#" className="text-[#f5f5f0]/50 hover:text-[#D4AF37] transition-colors font-sans text-sm uppercase tracking-widest">
-          Twitter
+        <a href="https://www.facebook.com/share/1GJPSjFtYq/" target="_blank" rel="noopener noreferrer" className="text-[#f5f5f0]/50 hover:text-[#D4AF37] transition-colors font-sans text-sm uppercase tracking-widest">
+          Facebook
         </a>
         <a href="https://wa.me/523337260138" target="_blank" rel="noopener noreferrer" className="text-[#f5f5f0]/50 hover:text-[#D4AF37] transition-colors font-sans text-sm uppercase tracking-widest">
           Contacto
